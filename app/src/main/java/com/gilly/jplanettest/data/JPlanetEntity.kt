@@ -48,9 +48,9 @@ data class JPlanetEntity(
     /**
      * cell type 클래스를 묶은 데이터
      */
-    val items: MutableList<CellType?>
+    val items: ArrayList<CellType?>
         get() {
-            return _items
+            return ArrayList(_items
                 .filterNot { // 정의된 CELL_TYPE에 속하지 않은 것은 제외 시킴
                     with(it.get(CELL_TYPE_KEY)) {
                         this != CELL_TYPE.COMPANY.apiValue
@@ -71,7 +71,7 @@ data class JPlanetEntity(
                         }
                         else -> null
                     }
-                }.toMutableList()
+                })
         }
 
 

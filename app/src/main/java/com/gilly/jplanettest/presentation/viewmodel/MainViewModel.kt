@@ -18,15 +18,15 @@ class MainViewModel @ViewModelInject constructor(
     private val mainRepository: MainRepository,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
-    val _companys: MutableLiveData<ArrayList<Company>> = MutableLiveData()
-    val _commercials: MutableLiveData<ArrayList<Commercial>> = MutableLiveData()
-    val _reviews: MutableLiveData<ArrayList<Review>> = MutableLiveData()
-    val _items: MutableLiveData<MutableList<CellType?>> = MutableLiveData()
+    private val _companys: MutableLiveData<ArrayList<Company>> = MutableLiveData()
+    private val _commercials: MutableLiveData<ArrayList<Commercial>> = MutableLiveData()
+    private val _reviews: MutableLiveData<ArrayList<Review>> = MutableLiveData()
+    private val _items: MutableLiveData<ArrayList<CellType?>> = MutableLiveData()
 
     val companys: LiveData<ArrayList<Company>> = _companys
     val commercials: LiveData<ArrayList<Commercial>> = _commercials
     val reviews: LiveData<ArrayList<Review>> = _reviews
-    val items: LiveData<MutableList<CellType?>> = _items
+    val items: LiveData<ArrayList<CellType?>> = _items
 
     fun getData() {
         addToDisposable(mainRepository.getData()
