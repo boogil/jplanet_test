@@ -12,9 +12,11 @@ import com.gilly.jplanettest.data.CellType
 import com.gilly.jplanettest.data.Commercial
 import com.gilly.jplanettest.data.Company
 import com.gilly.jplanettest.data.Review
+import com.gilly.jplanettest.databinding.ItemCommercialBinding
 import com.gilly.jplanettest.databinding.ItemCompanyBinding
+import com.gilly.jplanettest.databinding.ItemReviewBinding
 
-class CellTypeAdapter(val cellTypes: ArrayList<CellType>) : RecyclerView.Adapter<BindingViewHolder<ViewDataBinding>>() {
+class CellTypeAdapter(var cellTypes: ArrayList<CellType>) : RecyclerView.Adapter<BindingViewHolder<ViewDataBinding>>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,10 +27,10 @@ class CellTypeAdapter(val cellTypes: ArrayList<CellType>) : RecyclerView.Adapter
                 CompanyViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
             }
             ITEM_TYPE_COMMERCIAL -> {
-                CommercialViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
+                CommercialViewHolder(layoutInflater.inflate(R.layout.item_commercial, parent, false))
             }
             ITEM_TYPE_REVIEW -> {
-                ReviewViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
+                ReviewViewHolder(layoutInflater.inflate(R.layout.item_review, parent, false))
             }
             else -> {
                 CompanyViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
@@ -61,7 +63,7 @@ class CellTypeAdapter(val cellTypes: ArrayList<CellType>) : RecyclerView.Adapter
         }
     }
 
-    inner class CommercialViewHolder(view: View) : BindingViewHolder<ItemCompanyBinding>(view) {
+    inner class CommercialViewHolder(view: View) : BindingViewHolder<ItemCommercialBinding>(view) {
         override fun onCreate() {
         }
 
@@ -69,7 +71,7 @@ class CellTypeAdapter(val cellTypes: ArrayList<CellType>) : RecyclerView.Adapter
         }
     }
 
-    inner class ReviewViewHolder(view: View) : BindingViewHolder<ItemCompanyBinding>(view) {
+    inner class ReviewViewHolder(view: View) : BindingViewHolder<ItemReviewBinding>(view) {
         override fun onCreate() {
         }
 
