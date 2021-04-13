@@ -21,4 +21,4 @@ data class Review(
     @SerializedName("type") val type: String,
     @SerializedName("industry_name") val industryName: String,
     @SerializedName("simple_desc") val simpleDesc: String,
-)
+) : CellType()

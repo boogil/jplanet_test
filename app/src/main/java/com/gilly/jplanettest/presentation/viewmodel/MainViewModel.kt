@@ -8,6 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.gilly.jplanettest.core.exception.Failure
 import com.gilly.jplanettest.core.extension.onEfficientThread
+import com.gilly.jplanettest.data.CellType
 import com.gilly.jplanettest.data.Commercial
 import com.gilly.jplanettest.data.Company
 import com.gilly.jplanettest.data.Review
@@ -20,10 +21,12 @@ class MainViewModel @ViewModelInject constructor(
     val _companys: MutableLiveData<ArrayList<Company>> = MutableLiveData()
     val _commercials: MutableLiveData<ArrayList<Commercial>> = MutableLiveData()
     val _reviews: MutableLiveData<ArrayList<Review>> = MutableLiveData()
+    val _items: MutableLiveData<MutableList<CellType?>> = MutableLiveData()
 
     val companys: LiveData<ArrayList<Company>> = _companys
     val commercials: LiveData<ArrayList<Commercial>> = _commercials
     val reviews: LiveData<ArrayList<Review>> = _reviews
+    val items: LiveData<MutableList<CellType?>> = _items
 
     fun getData() {
         addToDisposable(mainRepository.getData()
@@ -33,6 +36,7 @@ class MainViewModel @ViewModelInject constructor(
                     _companys.value = it.companys
                     _commercials.value = it.commercials
                     _reviews.value = it.reviews
+                    _items.value = it.items
                 },
                 {
                     _failure.value = Failure.ServerFailure

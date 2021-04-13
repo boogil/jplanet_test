@@ -8,4 +8,4 @@ import com.google.gson.annotations.SerializedName
 data class Commercial(
     val count: Int,
     @SerializedName("themes") val themes: ArrayList<Theme> = arrayListOf(),
-)
+) : CellType()
