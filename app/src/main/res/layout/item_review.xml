@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -7,7 +9,113 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            tools:text="삼양발브종합메이커(주)"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/logo_img"
+            app:layout_constraintTop_toBottomOf="@id/logo_img"
+            app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
+            app:layout_constraintVertical_chainStyle="packed"
+            />
+
+        <TextView
+            android:id="@+id/rate_total_avg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1.0"
+            android:textSize="15sp"
+            android:textColor="#ff0000"
+            app:layout_constraintTop_toBottomOf="@id/company_name"
+            app:layout_constraintStart_toStartOf="@id/company_name"
+            app:layout_constraintBottom_toTopOf="@id/logo_img"
+            app:layout_constraintVertical_chainStyle="packed"
+            />
+
+        <TextView
+            android:id="@+id/industry_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="제조/화학"
+            android:textSize="15sp"
+            android:textColor="#c8c8c8"
+            app:layout_constraintStart_toEndOf="@id/rate_total_avg"
+            app:layout_constraintTop_toBottomOf="@id/rate_total_avg"
+            app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
+            android:layout_marginStart="10dp" />
+
+
+        <TextView
+            android:id="@+id/review_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="경영진이 가족 경영이라 그런지 가족이 잘 사는 회사지 직원이.."
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@id/logo_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/advantage_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#5BAFF1"
+            android:text="평균연봉"
+            app:layout_constraintTop_toBottomOf="@id/review_summary"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/advantage_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="동해물과백두산이마르고닳도록하느님이보우하사우리나라만세"
+            app:layout_constraintTop_toBottomOf="@id/review_summary"
+            app:layout_constraintStart_toEndOf="@id/advantage_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/disadvantage_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F15E3B"
+            android:text="면접질문"
+            app:layout_constraintTop_toBottomOf="@id/advantage_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/disadvantage_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="문과생의 경우 비젼을 제시 하지 못하거나 받지 못하는 경우 발생할수있다"
+            app:layout_constraintTop_toBottomOf="@id/advantage_title"
+            app:layout_constraintStart_toEndOf="@id/disadvantage_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

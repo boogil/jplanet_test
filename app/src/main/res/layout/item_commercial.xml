@@ -9,7 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp">
 
         <ImageView
@@ -74,6 +74,7 @@
             android:textColor="@color/black"/>
 
         <TextView
+            android:id="@+id/salary_avg_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#3AA74A"
@@ -82,5 +83,44 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp"/>
 
+        <TextView
+            android:id="@+id/salary_avg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="2,389"
+            app:layout_constraintTop_toBottomOf="@id/review_summary"
+            app:layout_constraintStart_toEndOf="@id/salary_avg_title"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="만원"
+            app:layout_constraintTop_toBottomOf="@id/review_summary"
+            app:layout_constraintStart_toEndOf="@id/salary_avg"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/interview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="면접질문"
+            app:layout_constraintTop_toBottomOf="@id/salary_avg"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/interview_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#595959"
+            tools:text="처음일차는 개별 이차는 다대일보고 최종합격 다대일의 경우 가나다라마바사"
+            app:layout_constraintTop_toBottomOf="@id/interview_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
