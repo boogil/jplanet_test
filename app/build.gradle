@@ -44,6 +44,7 @@ dependencies {
     def glide_version = "4.11.0"
     def retrofit_version = "2.9.0"
     def okHttpLoggingInterceptor_version = "4.7.2"
+    def rxjavaVersion = "3.0.0"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
@@ -103,13 +104,24 @@ dependencies {
     // RxJava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
-
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
 
     // retrofit
+    implementation('com.squareup.retrofit2:retrofit:2.9.0') {
+        exclude module: 'okhttp'
+    }
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:$rxjavaVersion"
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.2'
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
     // okHttpLoggingInterceptor
     implementation "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptor_version"
     // TrustManager Coscrypt
     implementation 'org.conscrypt:conscrypt-android:2.2.1'
+
+    // RxJava
+    implementation "io.reactivex.rxjava3:rxandroid:$rxjavaVersion"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjavaVersion"
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
 }

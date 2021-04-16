@@ -12,10 +12,8 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 class ServiceDi {
-
     @Provides
     @Singleton
     fun provideJPlanetService(retrofit: Retrofit): JPlanetService =
         retrofit.create(JPlanetService::class.java)
-
 }

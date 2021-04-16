@@ -9,5 +9,4 @@ class MainRepository @Inject constructor(
     private val jPlanetService: JPlanetService
 ){
     fun getData(): Single<JPlanetEntity> = jPlanetService.getData()
-
 }

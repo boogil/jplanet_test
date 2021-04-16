@@ -9,7 +9,7 @@ data class JPlanetEntity(
     @SerializedName("total_page") val totalPage: Int,
     @SerializedName("minimum_reviews") val minimumReviews: Int,
     @SerializedName("total_count") val totalCount: Int,
-    private val _items: ArrayList<HashMap<String, String>> = arrayListOf(),
+    @SerializedName("items") private val _items: ArrayList<HashMap<String, Any>> = arrayListOf(),
 ) {
 
     /**
@@ -48,7 +48,7 @@ data class JPlanetEntity(
     /**
      * cell type 클래스를 묶은 데이터
      */
-    val items: ArrayList<CellType?>
+    val cellTypes: ArrayList<CellType?>
         get() {
             return ArrayList(_items
                 .filterNot { // 정의된 CELL_TYPE에 속하지 않은 것은 제외 시킴

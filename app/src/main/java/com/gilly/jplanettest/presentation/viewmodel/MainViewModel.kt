@@ -5,7 +5,6 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.ViewModel
 import com.gilly.jplanettest.core.exception.Failure
 import com.gilly.jplanettest.core.extension.onEfficientThread
 import com.gilly.jplanettest.data.CellType
@@ -36,7 +35,7 @@ class MainViewModel @ViewModelInject constructor(
                     _companys.value = it.companys
                     _commercials.value = it.commercials
                     _reviews.value = it.reviews
-                    _items.value = it.items
+                    _items.value = it.cellTypes
                 },
                 {
                     _failure.value = Failure.ServerFailure

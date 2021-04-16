@@ -8,7 +8,7 @@
         <import type="com.gilly.jplanettest.data.CellType"/>
         <variable
             name="cellTypes"
-            type="ArrayList&lt;CellType&gt;" />
+            type="ArrayList&lt;CellType>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
