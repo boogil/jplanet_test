@@ -32,10 +32,12 @@ class MainActivity : BindingActivity<ActivityMainBinding>() {
             observe(mainViewModel.failure) { failure ->
                 progress.visibility = View.GONE
 
-                if (failure is Failure.ServerFailure) {
-                    makeToast(R.string.toast_error_msg_server)
-                } else {
-                    makeToast(R.string.toast_error_msg_etc)
+                when {
+                    failure is Failure.ServerFailure -> R.string.toast_error_msg_server
+                    failure is Failure.NetworkFailure ->  R.string.toast_error_msg_network
+                    else -> R.string.toast_error_msg_etc
+                }.let { msg ->
+                    makeToast(msg)
                 }
             }
         }

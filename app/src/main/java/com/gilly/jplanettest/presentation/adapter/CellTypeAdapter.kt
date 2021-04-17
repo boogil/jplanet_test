@@ -30,7 +30,12 @@ class CellTypeAdapter(
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             ITEM_TYPE_COMPANY -> {
-                CompanyViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
+                CompanyViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_company,
+                        parent, false
+                    )
+                )
             }
             ITEM_TYPE_COMMERCIAL -> {
                 CommercialViewHolder(
@@ -42,10 +47,20 @@ class CellTypeAdapter(
                 )
             }
             ITEM_TYPE_REVIEW -> {
-                ReviewViewHolder(layoutInflater.inflate(R.layout.item_review, parent, false))
+                ReviewViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_review,
+                        parent, false
+                    )
+                )
             }
             else -> {
-                CompanyViewHolder(layoutInflater.inflate(R.layout.item_company, parent, false))
+                CompanyViewHolder(
+                    layoutInflater.inflate(
+                        R.layout.item_company,
+                        parent, false
+                    )
+                )
             }
         }
     }
@@ -74,9 +89,9 @@ class CellTypeAdapter(
         override fun onBind(position: Int) {
             (cellTypes.get(position) as Company).let { company ->
                 binding.company = company
-                    binding.wrapper.onThrottleClick {
-                        onCompanyClickListener?.invoke(company)
-                    }
+                binding.wrapper.onThrottleClick {
+                    onCompanyClickListener?.invoke(company)
+                }
             }
         }
     }

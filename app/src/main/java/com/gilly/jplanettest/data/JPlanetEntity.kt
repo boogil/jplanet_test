@@ -52,9 +52,9 @@ data class JPlanetEntity(
             return ArrayList(_items
                 .filterNot { // 정의된 CELL_TYPE에 속하지 않은 것은 제외 시킴
                     with(it.get(CELL_TYPE_KEY)) {
-                        this != ECellTYPE.COMPANY.apiValue
-                                && this != ECellTYPE.COMMERCIAL.apiValue
-                                && this != ECellTYPE.REVIEW.apiValue
+                        !(this == ECellTYPE.COMPANY.apiValue ||
+                                this == ECellTYPE.COMMERCIAL.apiValue ||
+                                this == ECellTYPE.REVIEW.apiValue)
                     }
                 }
                 .map {
@@ -63,7 +63,10 @@ data class JPlanetEntity(
                             Gson().fromJson(Gson().toJson(it), Company::class.java) as CellType
                         }
                         ECellTYPE.COMMERCIAL.apiValue -> {
-                            Gson().fromJson(Gson().toJson(it), Commercial::class.java) as CellType
+                            Gson().fromJson(
+                                Gson().toJson(it),
+                                Commercial::class.java
+                            ) as CellType
                         }
                         ECellTYPE.REVIEW.apiValue -> {
                             Gson().fromJson(Gson().toJson(it), Review::class.java) as CellType

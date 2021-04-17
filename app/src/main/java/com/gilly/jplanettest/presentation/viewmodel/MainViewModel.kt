@@ -38,7 +38,7 @@ class MainViewModel @ViewModelInject constructor(
                     _cellTypes.value = it.cellTypes
                 },
                 {
-                    _failure.value = Failure.ServerFailure
+                    _failure.value = Failure.NetworkFailure
                 }
             ))
     }

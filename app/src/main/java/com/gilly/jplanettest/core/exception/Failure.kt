@@ -11,4 +11,5 @@ sealed class Failure(val errorMsg: String? = null) {
     object RoomFailure : FeatureFailure()
     object TimeoutFailure : FeatureFailure()
     object ServerFailure : FeatureFailure()
+    object NetworkFailure : FeatureFailure()
 }
