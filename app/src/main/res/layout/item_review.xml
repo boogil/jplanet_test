@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.gilly.jplanettest.data.Review"/>
+        <variable
+            name="review"
+            type="Review" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,11 +17,12 @@
 
         <ImageView
             android:id="@+id/logo_img"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_launcher_background"/>
+            tools:src="@drawable/ic_launcher_background"
+            imgUrl="@{review.logoUrl}"/>
 
         <TextView
             android:id="@+id/company_name"
@@ -33,6 +37,7 @@
             app:layout_constraintTop_toBottomOf="@id/logo_img"
             app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
             app:layout_constraintVertical_chainStyle="packed"
+            android:text="@{review.name}"
             />
 
         <TextView
@@ -46,6 +51,7 @@
             app:layout_constraintStart_toStartOf="@id/company_name"
             app:layout_constraintBottom_toTopOf="@id/logo_img"
             app:layout_constraintVertical_chainStyle="packed"
+            android:text="@{String.valueOf(review.rateTotalAvg)}"
             />
 
         <TextView
@@ -58,7 +64,8 @@
             app:layout_constraintStart_toEndOf="@id/rate_total_avg"
             app:layout_constraintTop_toBottomOf="@id/rate_total_avg"
             app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:text="@{review.industryName}"/>
 
 
         <TextView
@@ -71,7 +78,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:text="@{review.reviewSummary}"/>
 
         <TextView
             android:id="@+id/advantage_title"
@@ -93,7 +101,17 @@
             app:layout_constraintStart_toEndOf="@id/advantage_title"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:text="@{review.pros}"/>
+
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="advantage_title, advantage_desc"
+            app:barrierDirection="bottom"
+            />
 
         <TextView
             android:id="@+id/disadvantage_title"
@@ -101,9 +119,9 @@
             android:layout_height="wrap_content"
             android:textColor="#F15E3B"
             android:text="면접질문"
-            app:layout_constraintTop_toBottomOf="@id/advantage_title"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/disadvantage_desc"
@@ -111,11 +129,12 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             tools:text="문과생의 경우 비젼을 제시 하지 못하거나 받지 못하는 경우 발생할수있다"
-            app:layout_constraintTop_toBottomOf="@id/advantage_title"
+            app:layout_constraintTop_toBottomOf="@id/barrier"
             app:layout_constraintStart_toEndOf="@id/disadvantage_title"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="10dp"
+            android:text="@{review.cons}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

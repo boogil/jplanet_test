@@ -20,6 +20,7 @@ abstract class BindingActivity<T : ViewDataBinding> : AppCompatActivity() {
 
         DataBindingUtil.setContentView<T>(this, getLayoutResId()).apply {
             binding = this
+            binding.lifecycleOwner = this@BindingActivity
         }
     }
 

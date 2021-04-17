@@ -20,12 +20,12 @@ class MainViewModel @ViewModelInject constructor(
     private val _companys: MutableLiveData<ArrayList<Company>> = MutableLiveData()
     private val _commercials: MutableLiveData<ArrayList<Commercial>> = MutableLiveData()
     private val _reviews: MutableLiveData<ArrayList<Review>> = MutableLiveData()
-    private val _items: MutableLiveData<ArrayList<CellType?>> = MutableLiveData()
+    private val _cellTypes: MutableLiveData<ArrayList<CellType?>> = MutableLiveData()
 
     val companys: LiveData<ArrayList<Company>> = _companys
     val commercials: LiveData<ArrayList<Commercial>> = _commercials
     val reviews: LiveData<ArrayList<Review>> = _reviews
-    val items: LiveData<ArrayList<CellType?>> = _items
+    val cellTypes: LiveData<ArrayList<CellType?>> = _cellTypes
 
     fun getData() {
         addToDisposable(mainRepository.getData()
@@ -35,7 +35,7 @@ class MainViewModel @ViewModelInject constructor(
                     _companys.value = it.companys
                     _commercials.value = it.commercials
                     _reviews.value = it.reviews
-                    _items.value = it.cellTypes
+                    _cellTypes.value = it.cellTypes
                 },
                 {
                     _failure.value = Failure.ServerFailure

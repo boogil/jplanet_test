@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gilly.jplanettest.data.Company" />
+
+        <variable
+            name="company"
+            type="Company" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/logo_img"
+                imgUrl="@{company.imgUrl}"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@{company.name}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/logo_img"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="삼양발브종합메이커(주)" />
+
+            <TextView
+                android:id="@+id/rate_total_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(company.rateTotalAvg)}"
+                android:textColor="#ff0000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@id/company_name"
+                app:layout_constraintTop_toBottomOf="@id/company_name"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="1.0" />
+
+            <TextView
+                android:id="@+id/industry_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{company.industryName}"
+                android:textColor="#c8c8c8"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
+                app:layout_constraintStart_toEndOf="@id/rate_total_avg"
+                app:layout_constraintTop_toBottomOf="@id/rate_total_avg"
+                tools:text="제조/화학" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="rate_total_avg, industry_name" />
+
+            <TextView
+                android:id="@+id/review_summary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{company.reviewSummary}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barrier"
+                tools:text="경영진이 가족 경영이라 그런지 가족이 잘 사는 회사지 직원이.." />
+
+            <TextView
+                android:id="@+id/salary_avg_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="평균연봉"
+                android:textColor="#3AA74A"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/review_summary" />
+
+            <TextView
+                android:id="@+id/salary_avg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="@{String.valueOf(company.salaryAvg)}"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/salary_avg_title"
+                app:layout_constraintTop_toBottomOf="@id/review_summary"
+                tools:text="2,389" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:text="만원"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/salary_avg"
+                app:layout_constraintTop_toBottomOf="@id/review_summary" />
+
+            <TextView
+                android:id="@+id/interview_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="면접질문"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/salary_avg" />
+
+            <TextView
+                android:id="@+id/interview_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@{company.interviewQuestion}"
+                android:textColor="#595959"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/interview_title"
+                tools:text="처음일차는 개별 이차는 다대일보고 최종합격 다대일의 경우 가나다라마바사" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

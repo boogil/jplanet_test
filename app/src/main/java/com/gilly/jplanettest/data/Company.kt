@@ -1,6 +1,7 @@
 package com.gilly.jplanettest.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * cell_type : CELL_TYPE_COMPANY 인 경우
@@ -21,4 +22,4 @@ data class Company(
     @SerializedName("type") val type: String,
     @SerializedName("industry_name") val industryName: String,
     @SerializedName("simple_desc") val simpleDesc: String,
-) : CellType()
+) : CellType(), Serializable

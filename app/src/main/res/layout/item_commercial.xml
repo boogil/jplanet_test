@@ -4,123 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.gilly.jplanettest.data.Theme"/>
+        <variable
+            name="theme"
+            type="Theme" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/logo_img"
-            android:layout_width="wrap_content"
+            android:id="@+id/img"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_launcher_background"/>
-
-        <TextView
-            android:id="@+id/company_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            tools:text="삼양발브종합메이커(주)"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/logo_img"
-            app:layout_constraintTop_toBottomOf="@id/logo_img"
-            app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
-            app:layout_constraintVertical_chainStyle="packed"
-            />
-
-        <TextView
-            android:id="@+id/rate_total_avg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="1.0"
-            android:textSize="15sp"
-            android:textColor="#ff0000"
-            app:layout_constraintTop_toBottomOf="@id/company_name"
-            app:layout_constraintStart_toStartOf="@id/company_name"
-            app:layout_constraintBottom_toTopOf="@id/logo_img"
-            app:layout_constraintVertical_chainStyle="packed"
-            />
-
-        <TextView
-            android:id="@+id/industry_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="제조/화학"
-            android:textSize="15sp"
-            android:textColor="#c8c8c8"
-            app:layout_constraintStart_toEndOf="@id/rate_total_avg"
-            app:layout_constraintTop_toBottomOf="@id/rate_total_avg"
-            app:layout_constraintBottom_toTopOf="@id/rate_total_avg"
-            android:layout_marginStart="10dp" />
-        
-        
-        <TextView
-            android:id="@+id/review_summary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="경영진이 가족 경영이라 그런지 가족이 잘 사는 회사지 직원이.."
-            android:textSize="22sp"
-            app:layout_constraintTop_toBottomOf="@id/logo_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background"
+            imgUrl="@{theme.coverImgUrl}"
+            />
 
         <TextView
-            android:id="@+id/salary_avg_title"
-            android:layout_width="wrap_content"
+            android:id="@+id/title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="#3AA74A"
-            android:text="평균연봉"
-            app:layout_constraintTop_toBottomOf="@id/review_summary"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp"/>
+            tools:text="월급 도둑, 공범. 모집중 가나다라마사하"
+            android:text="@{theme.title}"
+            app:layout_constraintTop_toBottomOf="@id/img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/img"
+            app:layout_constraintEnd_toEndOf="@id/img"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="10dp"
+            />
 
-        <TextView
-            android:id="@+id/salary_avg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            tools:text="2,389"
-            app:layout_constraintTop_toBottomOf="@id/review_summary"
-            app:layout_constraintStart_toEndOf="@id/salary_avg_title"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="만원"
-            app:layout_constraintTop_toBottomOf="@id/review_summary"
-            app:layout_constraintStart_toEndOf="@id/salary_avg"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:id="@+id/interview_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="면접질문"
-            app:layout_constraintTop_toBottomOf="@id/salary_avg"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp"/>
-
-        <TextView
-            android:id="@+id/interview_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#595959"
-            tools:text="처음일차는 개별 이차는 다대일보고 최종합격 다대일의 경우 가나다라마바사"
-            app:layout_constraintTop_toBottomOf="@id/interview_title"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

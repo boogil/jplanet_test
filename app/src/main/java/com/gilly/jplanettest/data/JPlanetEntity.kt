@@ -74,7 +74,6 @@ data class JPlanetEntity(
                 })
         }
 
-
     enum class CELL_TYPE(val apiValue: String) {
         COMPANY("CELL_TYPE_COMPANY"),
         COMMERCIAL("CELL_TYPE_HORIZONTAL_THEME"),
