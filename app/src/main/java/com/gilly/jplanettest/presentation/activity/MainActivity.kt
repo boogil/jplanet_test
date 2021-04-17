@@ -17,7 +17,7 @@ class MainActivity: BindingActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.cellTypes = mainViewModel.items.value
+        binding.mainVm = mainViewModel
 
         observe(mainViewModel.items) { list ->
             list?.let { binding.progress.visibility = View.GONE }

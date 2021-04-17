@@ -60,6 +60,7 @@ class CellTypeAdapter(var cellTypes: ArrayList<CellType>) : RecyclerView.Adapter
         }
 
         override fun onBind(position: Int) {
+            binding.cellType = cellTypes.get(position) as Commercial
         }
     }
 
