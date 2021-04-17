@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#5BAFF1"
-            android:text="평균연봉"
+            android:text="장점"
             app:layout_constraintTop_toBottomOf="@id/review_summary"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="20dp"/>
@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F15E3B"
-            android:text="면접질문"
+            android:text="단점"
             app:layout_constraintTop_toBottomOf="@id/barrier"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="10dp"/>

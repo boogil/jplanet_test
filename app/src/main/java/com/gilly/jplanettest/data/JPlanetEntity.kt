@@ -2,7 +2,6 @@ package com.gilly.jplanettest.data
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
-import java.lang.Exception
 
 data class JPlanetEntity(
     @SerializedName("minimum_interviews") val minimumInterviews: Int,
@@ -19,7 +18,7 @@ data class JPlanetEntity(
         get() {
             return ArrayList(
                 _items
-                    .filter { it.get(CELL_TYPE_KEY) == CELL_TYPE.COMPANY.apiValue }
+                    .filter { it.get(CELL_TYPE_KEY) == ECellTYPE.COMPANY.apiValue }
                     .map { Gson().fromJson(Gson().toJson(it), Company::class.java) })
         }
 
@@ -30,7 +29,7 @@ data class JPlanetEntity(
         get() {
             return ArrayList(
                 _items
-                    .filter { it.get(CELL_TYPE_KEY) == CELL_TYPE.COMMERCIAL.apiValue }
+                    .filter { it.get(CELL_TYPE_KEY) == ECellTYPE.COMMERCIAL.apiValue }
                     .map { Gson().fromJson(Gson().toJson(it), Commercial::class.java) })
         }
 
@@ -41,7 +40,7 @@ data class JPlanetEntity(
         get() {
             return ArrayList(
                 _items
-                    .filter { it.get(CELL_TYPE_KEY) == CELL_TYPE.REVIEW.apiValue }
+                    .filter { it.get(CELL_TYPE_KEY) == ECellTYPE.REVIEW.apiValue }
                     .map { Gson().fromJson(Gson().toJson(it), Review::class.java) })
         }
 
@@ -53,20 +52,20 @@ data class JPlanetEntity(
             return ArrayList(_items
                 .filterNot { // 정의된 CELL_TYPE에 속하지 않은 것은 제외 시킴
                     with(it.get(CELL_TYPE_KEY)) {
-                        this != CELL_TYPE.COMPANY.apiValue
-                                && this != CELL_TYPE.COMMERCIAL.apiValue
-                                && this != CELL_TYPE.REVIEW.apiValue
+                        this != ECellTYPE.COMPANY.apiValue
+                                && this != ECellTYPE.COMMERCIAL.apiValue
+                                && this != ECellTYPE.REVIEW.apiValue
                     }
                 }
                 .map {
                     when (it.get(CELL_TYPE_KEY)) {
-                        CELL_TYPE.COMPANY.apiValue -> {
+                        ECellTYPE.COMPANY.apiValue -> {
                             Gson().fromJson(Gson().toJson(it), Company::class.java) as CellType
                         }
-                        CELL_TYPE.COMMERCIAL.apiValue -> {
+                        ECellTYPE.COMMERCIAL.apiValue -> {
                             Gson().fromJson(Gson().toJson(it), Commercial::class.java) as CellType
                         }
-                        CELL_TYPE.REVIEW.apiValue -> {
+                        ECellTYPE.REVIEW.apiValue -> {
                             Gson().fromJson(Gson().toJson(it), Review::class.java) as CellType
                         }
                         else -> null
@@ -74,13 +73,13 @@ data class JPlanetEntity(
                 })
         }
 
-    enum class CELL_TYPE(val apiValue: String) {
+    enum class ECellTYPE(val apiValue: String) {
         COMPANY("CELL_TYPE_COMPANY"),
         COMMERCIAL("CELL_TYPE_HORIZONTAL_THEME"),
         REVIEW("CELL_TYPE_REVIEW")
     }
 
     companion object {
-        const val CELL_TYPE_KEY = "cell_type"
+        private const val CELL_TYPE_KEY = "cell_type"
     }
 }
